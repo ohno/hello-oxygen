@@ -4,18 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello Oxygen.jl</title>
-  <!-- HTMX -->
-  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js" integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js" integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ" crossorigin="anonymous"></script> <!-- HTMX -->
 </head>
 <body>
 
-  <!-- Call `/rand` using JavaScript -->
   <button onclick="fetch('/rand').then(response => response.text()).then(text => document.getElementById('result').innerHTML = text)">Call `/rand` using JavaScript</button>
-
-  <!-- Call `/rand` using HTMX -->
   <button hx-get="/rand" hx-target="#result" hx-swap="innerHTML">Call `/rand` using HTMX</button>
-
-  <!-- Display Result -->
   <p>result: <span id="result"></span></p>
 
 </body>
