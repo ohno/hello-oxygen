@@ -1,10 +1,15 @@
 using Oxygen
 using HTTP
 
-staticfiles("html", "/")
-
-@get "/rand" function(req::HTTP.Request)
-    return "$(rand())"
+@get "/" function(req::HTTP.Request)
+    return "go to /hello"
 end
 
-serve(host="0.0.0.0", port=parse(Int64, get(ARGS, 1, "8080")))
+@get "/hello" function(req::HTTP.Request)
+    return "Hello, World!"
+end
+
+serve(
+    host = get(ENV, "HOST", "0.0.0.0"),
+    port = parse(Int, get(ENV, "PORT", "8000")),
+)
